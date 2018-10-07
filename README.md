@@ -2,7 +2,7 @@
 Given few set of images, this project intelligently generates entirely new possible images using  [Reduced Singular Value Decomposition(SVD)](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).  The code implementation is in matlab.
 
 ## Practical use case
-**Input:** *Hey software, last night a robbery has occurred at Store A. Luckily we have image of person from video surveillance and unfortunately he has mask on face. In morning, we have a suspect in our custody and here is his image. Can you please verify whether this suspect one wearing mask in surveillance system?*
+**Input:** Hey software, last night a robbery has occurred at Store A. Luckily we have image of person from video surveillance and unfortunately he has mask on face. In morning, we have a suspect in our custody and here is his image. Can you please verify whether this suspect one wearing mask in surveillance system?
 **Output:** *(yes/no)*
 
 ## Approach

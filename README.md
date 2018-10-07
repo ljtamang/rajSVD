@@ -13,7 +13,7 @@ For the purpose of simplicity, I will just use 3 images and gray scale images.
 
   1.	Given image I1, I2 and I3, create data matrix **A** where each column of represents single image data.
   2.	Apply reduced singular value decomposition(SVD) to obtain basis **U** that spans the data of image.
-  3.	Randomly generate coefficients c1, c2 and c3. Create new linear combination **L** = c1 * m1 + c2 * u2 + c3 * u3, where         u1, u2 and u3 are column of U. The L is the new image data.
+  3.	Randomly generate coefficients c1, c2 and c3. Create new linear combination **L = c1 * m1 + c2 * u2 + c3 * u3**, where         u1, u2 and u3 are column of U. The L is the new image data.
   4.	You can create any number of possible images by repeating process 3.
 
 ## Files

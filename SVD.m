@@ -1,6 +1,6 @@
 % Author: Lasang Jimba Tamang
-% This program takes the images under same scene but different light illumination
-% as input. Then  it used SVD to create different possible images.
+% This program takes the images under same scene but different light illuminations
+% as inputs. Then, it uses SVD to create different possible images.
 
 % Step 1: Read images and form data matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

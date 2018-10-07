@@ -9,7 +9,7 @@ Given few set of images, this project intelligently generates entirely new possi
 **Output:** yes/no.
 
 ## Approach
-For the purpose of simplicity, I will just use 3 images and gray scale images.
+For the purpose of simplicity, I will just use 3 gray scale images.
 
   1.	Given image I1, I2 and I3, create data matrix **A** where each column of represents single image data.
   2.	Apply reduced singular value decomposition(SVD) to obtain basis **U** that spans the data of image.
@@ -23,5 +23,5 @@ simulated_image1.jpg, simulated_image2.jpg,….simulated_image6.jpg are output i
 reduced_svd.pdf is [slide with SVD algorithm](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).
 
 **Acknowledgements**
-Ths project is named **rajSVD** to reconize by eldest brother Raj Kumar Lama who supported me in all possible way for my study and SVD algorithm being heart of this implementaion. I would also acknowledge [Dr. Madhusudhanan Balasubramanian](https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
+Ths project is named **rajSVD** to reconize by eldest brother Raj Kumar Lama who supported me in all possible way for my study and SVD algorithm being heart of this implementation. I would also like to acknowledge [Dr. Madhusudhanan Balasubramanian](https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
 

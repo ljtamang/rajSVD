@@ -15,9 +15,8 @@ For the purpose of simplicity, I will just use 3 images and gray scale images.
   4.	You can create any number of possible images by repeating process 3.
 
 ## Files
-**matlab.m :** Source code.
-
-**image1.jpg, image2.jpg, image3.jpg :**  Input images under different light illuminations.
-**simulated_image1.jpg, simulated_image2.jpg,….simulated_image6.jpg :** Output images of the program.
-**reduced_svd.pdf :**  [Slide with SVD algorithm](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).
+matlab.m  is the Source code implemeantion.
+image1.jpg, image2.jpg, image3.jpg  are input images under different light illuminations.
+simulated_image1.jpg, simulated_image2.jpg,….simulated_image6.jpg are output images of the program.
+reduced_svd.pdf is [slide with SVD algorithm](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).
 

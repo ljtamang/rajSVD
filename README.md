@@ -23,5 +23,5 @@ simulated_image1.jpg, simulated_image2.jpg,….simulated_image6.jpg are output i
 reduced_svd.pdf is [slide with SVD algorithm](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).
 
 **Acknowledgements**
-Ths project is named rajSVD to reconize by eldest brother Raj Kumar Lama who supported me in all possible way for my study and SVD algorithm being heart of this implementaion. I would also acknowledge [Dr. Madhusudhanan Balasubramanian](https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
+Ths project is named **rajSVD** to reconize by eldest brother Raj Kumar Lama who supported me in all possible way for my study and SVD algorithm being heart of this implementaion. I would also acknowledge [Dr. Madhusudhanan Balasubramanian](https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
 

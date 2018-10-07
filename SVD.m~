@@ -1,0 +1,140 @@
+% Author: Lasang Jimba Tamang
+% This program takes the images under same scene but different light illumination
+% as input. Then  it used SVD to create different possible images.
+
+% Step 1: Read images and form data matrix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1.1 Read images as  matrix
+I1_mat = imread('image1.jpg'); % returns 960 X 1280 matrix
+I2_mat = imread('image2.jpg');
+I3_mat = imread('image3.jpg');
+% 1.2 Convert each matrix as column vector
+a1_vec = I1_mat(:); 
+a2_vec = I2_mat(:);
+a3_vec = I3_mat(:); 
+% 1.3 Put all column vector toghether to form a matrix
+A = [a1_vec, a2_vec, a3_vec]; % Form data matrix
+A = double(A);
+
+% Step 2: Apply SVD to get basis of A. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% We appy reduced SVD to obtain U, SIGMA and V. 
+% Here, U is a basis of A. This mean some linear combinations
+% of U gives new possible images
+[U, SIGMA, V] = reduced_SVD(data_matrix_A);
+
+
+% Form 6 new images using basis and save them
+produce_new_images_using_basis(6, U, size(imread('image1.jpg')));
+disp("The new six images are created. Please look at the folder where you keept script file.");
+
+% Show that the left singular vectors in U span the images in the data matrix A.
+% Each col of coeff_matrix contains a set of coefficients for single col of A
+% E.g. First col of coeff_matrix contains coeffcients caluclated using
+% first column of A and basis B
+coeff_matrix = coefficients(data_matrix_A,U); 
+new_data_matrix_A = linear_combinations(coeff_matrix, U);
+% If they are same, the basis U span the data matrix A
+ if(data_matrix_A-new_data_matrix_A< 0.001)
+     disp("The left singular vector matirx span the data matrix A");
+ else
+      disp("The left singular vector matirx do not span the data matrix A");
+ end
+ 
+
+ % Given the coefficients and basis, it produces new matrix with linear
+ % combinations
+ function [a] = linear_combinations(coeff_matrix, basis)
+    a = zeros(size(basis));
+    for i = 1: size(coeff_matrix,2) % each column of coefficients
+        Linear_combination = 0;
+        for  j= 1: size(basis,2) % each column of basis
+            Linear_combination = Linear_combination + coeff_matrix(j,i).*basis(:,j);
+        end
+        a(:,i) = Linear_combination;
+    end
+ end
+
+function [coeff] = coefficients(A, B)
+    % A is a collection of function that belong to space V
+    % B is basis for vector space V
+    
+    % For each column of A, we caculate  coefficients C
+    % Each coeffcients C contain as many element as column in B.
+    coeff = zeros(size(A,2),size(B,2));
+    for i = 1 : size(A,2) % for each column in A
+        for j = 1 : size(B,2)
+            coeff(j,i) = dot(A(:,i),B(:,j))/dot(B(:,j),B(:,j));
+        end 
+    end
+end
+
+% Function that implement the reduced singular value
+% decomposition (reduced SVD) method of a matrix A of size m*n with n << m.
+function [U, SIGMA, V] = reduced_SVD(A)
+    % Input:  Matrix A of size m*n,m>n
+    % Output: U, SIGMA, V
+    % U: size m*n, column of U are called left singualr vectors of A
+    % SIGMA: diagonal matrix of size n*n, diagonal entries of Sigma
+    % are called singular values of A
+    % V: size n*n, column of V are called left singualr vectors A
+    
+    % Caluclate U, Sigma and V
+    C = transpose(A)*A;
+    [V, SIGMA] = eig(C);
+    sigma = sqrt(eig(C)); % sigma elementare sqrt of diogonal element
+    
+    [m, n] = size(A); 
+    U = zeros(m,n); 
+    for column_no = 1 : n 
+        U(:,column_no) = A*V(:,column_no)./sigma(column_no);
+    end 
+end
+
+% Function that produces new iamges given basis and saves them
+function [] = produce_new_images_using_basis(no_of_images, basis, imagze_size)  
+   [no_of_row, no_of_column] = size(basis);
+    for count= 1 : no_of_images
+        coeff  = randperm(1500,no_of_column);
+        new_image_vec= zeros(no_of_row, 1);
+        for n = 1 : no_of_column
+            new_image_vec = new_image_vec + coeff(n)*basis(:,n);
+        end
+        new_image_matrix = reshape(new_image_vec,imagze_size);
+        imwrite(new_image_matrix, ['simulated_image_' num2str(count) '.jpg']);
+    end
+end
+
+% Function to form A matrix
+function [A] = read_images_and_form_data_matrix()
+    I1_mat = imread('image1.jpg'); % returns 960 X 1280 matrix
+    I2_mat = imread('image2.jpg');
+    I3_mat = imread('image3.jpg');
+    % Put each as column vector of matrix A
+    a1_vec = I1_mat(:); 
+    a2_vec = I2_mat(:);
+    a3_vec = I3_mat(:); 
+    A = [a1_vec, a2_vec, a3_vec]; % Form data matrix
+    A = double(A);
+end 
+
+% check if the columns of matrix are orthogonal to each other
+function [is_matrix_orthogonal]  = matrix_orthogonality_test(M)
+    is_matrix_orthogonal = 0; % set default to not orthogonal
+    [~,no_of_col] = size(M);
+    for i = 1 : no_of_col
+        for j = 1 : no_of_col
+            if(i~=j)
+                if (dot(M(:,i),M(:,j))< 1.1e-11)
+                    is_matrix_orthogonal = 1;
+                else
+                    is_matrix_orthogonal = 0;
+                    return;
+                end
+            end  
+        end
+    end
+
+end

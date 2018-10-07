@@ -1,7 +1,7 @@
 # rajSVD
 Given few set of images, this project intelligently generates entirely new possible images using  [Reduced Singular Value Decomposition(SVD)](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf). The code implementation is in matlab.
 
-## Keywords :## **Singular Value Decompisiton (SVD), Matlab**
+**Keywords :** *Singular Value Decompisiton (SVD), Matlab*
 
 ## Practical use case
 **Input:** Hey program, last night somebody broke into store A. We have image of person with mask from CCTV camera. In morning, we have a suspect in our custody and here is his image. Now, can you please say if the suspect is one who appeared in CCTV camera or not?

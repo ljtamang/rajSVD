@@ -20,6 +20,6 @@ image1.jpg, image2.jpg, image3.jpg  are input images under different light illum
 simulated_image1.jpg, simulated_image2.jpg,….simulated_image6.jpg are output images of the program.
 reduced_svd.pdf is [slide with SVD algorithm](https://github.com/ljtamang/rajSVD/blob/master/reduced_SVD_slide.pdf).
 
-** ##Acknowledgement ##**
-Ths project is name rajSVD to reconize by eldest brother Raj Kumar Lama who supported me in all possible for my study and SVD algorithm which is heart of this implementaion. I would also acknowledge [Dr. Madhusudhanan Balasubramanian] (https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
+**Acknowledgements**
+Ths project is name rajSVD to reconize by eldest brother Raj Kumar Lama who supported me in all possible for my study and SVD algorithm which is heart of this implementaion. I would also acknowledge [Dr. Madhusudhanan Balasubramanian](https://www.computationalocularscience.com/members/), The University of memphis, who made me this algorithm crystal clear.
 
